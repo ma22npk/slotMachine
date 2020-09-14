@@ -68,4 +68,8 @@ main {
 .unmatched {
   opacity: 0.5;
 }
+
+.inactive {
+  opacity: 0.5;
+}
 /*# sourceMappingURL=style.css.map */
