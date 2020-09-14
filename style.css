@@ -46,4 +46,22 @@ main {
       -ms-user-select: none;
           user-select: none;
 }
+
+#spin {
+  cursor: pointer;
+  width: 280px;
+  height: 36px;
+  background: #3498bd;
+  -webkit-box-shadow: 0 4px 0 #2880b9;
+          box-shadow: 0 4px 0 #2880b9;
+  border-radius: 18px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=style.css.map */
