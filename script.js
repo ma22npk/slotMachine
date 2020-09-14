@@ -7,11 +7,16 @@
       section.classList.add('panel');
 
       this.img = document.createElement('img');
-      this.img.src = 'images/seven.png';
+      this.img.src = this.getRandomImage();
+
+      this.timeoutId = undefined;
 
       this.stop = document.createElement('div');
       this.stop.textContent = 'STOP';
       this.stop.classList.add('stop');
+      this.stop.addEventListener('click', () => {
+        clearTimeout(this.timeoutId);
+      })
 
       section.appendChild(this.img);
       section.appendChild(this.stop);
@@ -20,19 +25,22 @@
       main.appendChild(section);
     }
 
-getRandomImage(){
-const images = [
-'images/seven.png',
-'images/bell.png',
-'images/cherry.png',
-];
+    getRandomImage() {
+      const images = [
+        'images/seven.png',
+        'images/bell.png',
+        'images/cherry.png',
+      ];
 
-return images[Math.floor(Math.random() * images.length)];
-}
+      return images[Math.floor(Math.random() * images.length)];
+    }
 
-spin(){
-this.img.src = this.getRandomImage();
-}
+    spin() {
+      this.img.src = this.getRandomImage();
+      this.timeoutId = setTimeout(() => {
+        this.spin();
+      }, 50);
+    }
   }
 
   const panels = [
@@ -41,14 +49,14 @@ this.img.src = this.getRandomImage();
     new Panel(),
   ];
 
-const spin = document.getElementById('spin');
-spin.addEventListener('click', ()=>{
+  const spin = document.getElementById('spin');
+  spin.addEventListener('click', () => {
 
-panels.forEach(panel =>{
-panel.spin();
+    panels.forEach(panel => {
+      panel.spin();
 
-});
-});
+    });
+  });
 
 
 }
